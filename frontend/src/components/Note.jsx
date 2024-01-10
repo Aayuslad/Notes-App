@@ -4,12 +4,13 @@ export default function Note({ note }) {
     const store = notesStore()
 
     return (
-        <div className="note">
+        <div className="note" onClick={(e) => store.openNote(e, note)}>
             <h3>{note.title}</h3>
             <p>{note.body}</p>
             <div>
-                <button onClick={() => store.openUpdateForm(note)}>Edit Note</button>
-                <button onClick={() => store.deleteNote(note._id)}>Delete Note</button>
+                <button onClick={() => store.deleteNote(note._id)} className="btn">
+                    Delete Note
+                </button>
             </div>
         </div>
     )

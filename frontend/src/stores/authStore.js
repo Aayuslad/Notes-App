@@ -65,6 +65,8 @@ const authStore = create((set) => ({
     },
 
     logout: async () => {
+        const confermation = window.confirm("Are you sure you want to log out?")
+        if (!confermation) return
         await axios.get("/user/logout")
         set({ loggedIn: false })
     },

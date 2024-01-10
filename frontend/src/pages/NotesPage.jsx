@@ -1,8 +1,8 @@
-import CreateForm from "../components/CreateForm"
-import UpdateForm from "../components/UpdateForm"
+import CreateNoteBtn from "../components/CreateNoteBtn"
 import Notes from "../components/Notes"
 import notesStore from "../stores/notesStore"
 import { useEffect } from "react"
+import OpenedNote from "../components/OpenedNote"
 
 export default function NotesPage() {
     const store = notesStore()
@@ -14,8 +14,8 @@ export default function NotesPage() {
     return (
         <div className="notesApp">
             <Notes />
-            <CreateForm />
-            <UpdateForm />
+            <OpenedNote />
+            <CreateNoteBtn />
         </div>
     )
 }

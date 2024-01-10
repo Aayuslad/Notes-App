@@ -1,4 +1,5 @@
 import notesStore from "../stores/notesStore"
+import Header from "./Header"
 import Note from "./Note"
 
 export default function Notes() {
@@ -6,7 +7,7 @@ export default function Notes() {
 
     return (
         <div>
-            <h2>Notes</h2>
+            <Header />
             {
                 <div className="notes">
                     {store.notes &&

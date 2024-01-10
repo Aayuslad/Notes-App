@@ -3,6 +3,7 @@ import mongoose, { Schema, model } from "mongoose"
 const noteSchema = new mongoose.Schema({
     title: String,
     body: String,
+    lastEdited: Date,
     author: { type: mongoose.Types.ObjectId, ref: "User" },
 })
 

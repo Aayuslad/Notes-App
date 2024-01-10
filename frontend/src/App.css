@@ -9,21 +9,45 @@
 body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 
-.notesApp h2{
+/* reapiting styles */
+.btn {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px 12px;
+    margin: 5px;
+}
+
+.btn:hover {
+    background-color: rgb(200, 200, 200);
+}
+
+/* body */
+.header {
     position: sticky;
     top: 0;
-    max-width: 100%;
-    font-family: 'Lemon', monospace;
-    font-weight: 300;
-    font-size: 1.8rem;
-    text-align: center;
+    width: 100%;
     background-color: rgb(182, 181, 181);
     border-bottom: 2px solid black;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
     padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.notesApp{
+    width: 100%;
+    height: 100vh;
+}
+
+.notesApp h1{
+    flex: 1;
+    font-family: 'Lemon', monospace;
+    font-weight: 300;
+    font-size: 1.8rem;
+    text-align: center;
 }
 
 .notesApp h3{
@@ -44,18 +68,13 @@ body{
     background-color: rgb(242, 242, 243);
     padding: 5px 10px;
     width: 250px;
+    max-height: 300px;
     border-radius: 2px;
+    overflow: hidden;
 }
 
 .notesApp .note button {
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 2px 10px;
-    margin: 5px 5px 5px 0;
-}
-
-.notesApp .note button:hover {
-    background-color: rgb(200, 200, 200);
+    margin-left: 0;
 }
 
 .notesApp .notes {
@@ -79,14 +98,8 @@ body{
 }
 
 .notesApp .createNote button, .updateNote button{
-    border: 1px solid black;
     margin: 5px 2px 0;
     padding: 4px 0;
-    border-radius: 5px;
-}
-
-.notesApp .createNote button:hover, .updateNote button:hover {
-    background-color: rgb(200, 200, 200);
 }
 
 .notesApp .createNote input, .createNote textarea, .updateNote input, .updateNote textarea {
@@ -143,16 +156,10 @@ body{
 }
 
 .LoginForm button, .SigninForm button {
-    border: 1px solid black;
-    border-radius: 5px;
     padding: 5px 10px;
     margin-top: 15px;
     width: 200px;
     font-size: 1rem;
-}
-
-.LoginForm button:hover, .SigninForm button:hover {
-    background-color: rgb(200, 200, 200);
 }
 
 .FormBg {
@@ -172,4 +179,90 @@ body{
     align-items: center;
     justify-content: center;
     font-weight: 300;
+}
+
+.btn-createNote {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    height: 50px;
+    width: 50px;
+    border-radius: 15px;
+    font-size: 3rem;
+    font-weight: 100;
+    color: rgb(63, 63, 63);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.openedNote {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.openedNote .bigNote {
+    background-color: rgb(242, 242, 243);
+    border: 1px solid rgba(143, 143, 143, 0.408);
+    width: 90%;
+    max-width: 1000px;
+    height: 90%;
+    border-radius: 10px;
+    outline: none;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.openedNote textarea {
+    border: none;
+    outline: none;
+    font-family: inherit;
+    resize: none;
+    padding: 5px;
+    border: 1px solid rgba(143, 143, 143, 0.408);
+
+}
+
+.openedNote textarea::-webkit-scrollbar {
+    display: none;
+}
+
+.openedNote textarea[name="title"] {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    height: 40px;
+    font-size: 1.5rem;
+    border-bottom: 1px solid black;
+}
+
+.openedNote textarea[name="body"] {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    flex: 1;
+}
+
+.openedNote .nav {
+    display: flex;
+    margin-top: 8px;
+}
+
+.openedNote .nav .lastDate {
+    color: rgb(45, 45, 45);
+    font-weight: 100;
+    font-size: 0.8rem;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.openedNote .nav .btn-close {
+    margin: 0;
+    margin-bottom: 0;
 }

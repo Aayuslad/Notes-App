@@ -32,7 +32,7 @@ export default function LoginForm() {
                 value={store.loginForm.password}
                 onChange={store.updateLoginForm}
             />
-            <button type="submit">Log in</button>
+            <button type="submit" className="btn">Log in</button>
             <Link to="/signin">Signin - Do not have an account ?</Link>
         </form>
     )
