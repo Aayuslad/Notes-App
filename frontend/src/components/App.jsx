@@ -1,7 +1,7 @@
 import "../App.css"
-import NotesPage from "../pages/notesPage"
+import NotesPage from "../pages/NotesPage"
 import LoginPage from "../pages/LoginPage"
-import SigninPage from "../pages/Signinpage"
+import SigninPage from "../pages/SigninPage"
 import RequireAuth from "./RequireAuth"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
