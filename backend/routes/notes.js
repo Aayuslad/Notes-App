@@ -30,10 +30,10 @@ router.get("/:id", async (req, res) => {
 })
 
 router.post("/", async (req, res) => {
-    const { title, body } = req.body
+    const { title, body, lastEdited } = req.body
     const author = req.user._id
     try {
-        const note = await Note.create({ title, body, author })
+        const note = await Note.create({ title, body, author, lastEdited })
         res.status(201).json({ note })
     } catch (error) {
         console.error(error)
@@ -44,10 +44,10 @@ router.post("/", async (req, res) => {
 router.put("/:id", async (req, res) => {
     const _id = req.params.id
     const author = req.user._id
-    const { title, body } = req.body
+    const { title, body, lastEdited } = req.body
 
     try {
-        await Note.findOneAndUpdate({ _id, author }, { title, body })
+        await Note.findOneAndUpdate({ _id, author }, { title, body, lastEdited })
         const note = await Note.findById(_id)
         res.json({ note })
     } catch (error) {
