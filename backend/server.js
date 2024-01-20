@@ -20,6 +20,9 @@ app.use(
 )
 app.use(express.json())
 app.use(cookieParser())
+app.get("/", (req, res) => {
+    res.json({ message : "Hello"});
+})
 app.use("/user", userRouter)
 app.use("/notes", AuthMiddleware, notesRouter)
 
