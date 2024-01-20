@@ -25,8 +25,8 @@ app.use(express.json())
 app.use(cookieParser())
 app.use("/user", userRouter)
 app.use("/notes", AuthMiddleware, notesRouter)
-app.use("*", (err, req, res, next) => {
-    res.status(404).send("404 File not found")
-})
+// app.use("*", (err, req, res, next) => {
+//     res.status(404).send("404 File not found")
+// })
 
 app.listen(PORT, () => console.log(`Sevrer started on port ${PORT}`))
