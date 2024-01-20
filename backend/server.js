@@ -16,7 +16,8 @@ connectToDB()
 
 app.use(
     cors({
-        origin: true,
+        origin: "https://notes-app-lilac-nu.vercel.app",
+        methods: ["get", "post", "put", "delete"],
         credentials: true,
     })
 )
