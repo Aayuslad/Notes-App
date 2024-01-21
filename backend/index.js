@@ -13,7 +13,7 @@ connectToDB()
 
 app.use(
     cors({
-        origin: "https://notes-app-frontend-beige.vercel.app",
+        origin: "",
         methods: ["get", "post", "put", "delete"],
         credentials: true,
     })
@@ -21,7 +21,7 @@ app.use(
 app.use(express.json())
 app.use(cookieParser())
 app.get("/", (req, res) => {
-    res.json({ message : "Hello" });
+    res.json({ message : "Server is started 😊" });
 })
 app.use("/user", userRouter)
 app.use("/notes", AuthMiddleware, notesRouter)
