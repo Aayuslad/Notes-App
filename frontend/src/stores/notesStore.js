@@ -26,8 +26,15 @@ const notesStore = create((set) => ({
         const lastEdited = new Date()
 
         try {
-            const res = await axios.post("/notes", { title: "", body: "", lastEdited : lastEdited.toDateString() })
-            set({ notes: [...notes, res.data.note], openedNote: { _id: res.data.note._id, lastEdited: lastEdited.toDateString() } })
+            const res = await axios.post("/notes", {
+                title: "",
+                body: "",
+                lastEdited: lastEdited.toDateString(),
+            })
+            set({
+                notes: [...notes, res.data.note],
+                openedNote: { _id: res.data.note._id, lastEdited: lastEdited.toDateString() },
+            })
         } catch (error) {
             console.log("Error while creating note", error)
             alert(error.message)
@@ -72,7 +79,7 @@ const notesStore = create((set) => ({
     updateOpenedNote: async (e) => {
         const { name, value } = e.target
         const lastEdited = new Date()
-        set((state) => ({ openedNote: { ...state.openedNote, [name]: value} }))
+        set((state) => ({ openedNote: { ...state.openedNote, [name]: value } }))
 
         const { openedNote } = notesStore.getState()
         const { _id, title, body } = openedNote
@@ -85,11 +92,11 @@ const notesStore = create((set) => ({
     },
 
     getEditedStatus: () => {
-        const { openedNote } = notesStore.getState();
+        const { openedNote } = notesStore.getState()
         const { lastEdited } = openedNote
 
-        return `Last edited on : ${lastEdited}`;
-    }
+        return `Last edited on : ${lastEdited}`
+    },
 }))
 
 export default notesStore
