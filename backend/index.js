@@ -13,8 +13,8 @@ connectToDB()
 
 app.use(
     cors({
-        origin: "",
-        methods: ["get", "post", "put", "delete"],
+        origin: "*",
+        methods: ["GET", "POST", "PUT", "DELETE"],
         credentials: true,
     })
 )
@@ -26,4 +26,4 @@ app.get("/", (req, res) => {
 app.use("/user", userRouter)
 app.use("/notes", AuthMiddleware, notesRouter)
 
-app.listen(PORT, () => console.log(`Sevrer started on port ${PORT}`))
+app.listen(PORT, () => console.log(`Sevrer started on port ${PORT}`))   
