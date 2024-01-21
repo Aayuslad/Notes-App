@@ -13,7 +13,7 @@ connectToDB()
 
 app.use(
     cors({
-        origin: "https://notes-app-five-nu.vercel.app",
+        origin: "",
         methods: ["get", "post", "put", "delete"],
         credentials: true,
     })
