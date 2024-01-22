@@ -28,6 +28,7 @@ const authStore = create((set) => ({
         const { loginForm } = authStore.getState()
         try {
             await axios.post("/user/login", loginForm)
+            alert("logged in successfully")
             set({ loggedIn: true })
         } catch (error) {
             console.log("Error while logging", error)
@@ -57,9 +58,11 @@ const authStore = create((set) => ({
 
     checkAuth: async () => {
         try {
+            console.log("Chekouth runned.....");
             await axios.get("/user/checkAuth")
             set({ loggedIn: true })
         } catch (error) {
+            console.log("Auth error : ", error);
             set({ loggedIn: false })
         }
     },
