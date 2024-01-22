@@ -47,7 +47,11 @@ router.post("/login", async (req, res) => {
 
 router.get("/logout", (req, res) => {
     try {
-        res.clearCookie("Authorization")
+        res.clearCookie("Authorization", {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: "None",
+        })
         res.sendStatus(200)
     } catch (err) {
         console.log(err.message)
