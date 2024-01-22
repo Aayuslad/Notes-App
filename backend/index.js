@@ -3,7 +3,10 @@ const app = express()
 import cors from "cors"
 import cookieParser from "cookie-parser"
 const PORT = process.env.PORT || 8080
-import "dotenv/config"
+import dotenv from "dotenv"
+if (process.env.NODE_ENV != "production") {
+    dotenv.config()
+}
 import connectToDB from "./config/connectToDB.js"
 import notesRouter from "./routes/notes.js"
 import userRouter from "./routes/user.js"
