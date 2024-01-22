@@ -35,6 +35,8 @@ router.post("/login", async (req, res) => {
             expires: new Date(exp),
             httpOnly: true,
             sameSite: "None",
+            domain: "notes-app-frontend-pi.vercel.app",
+            path: "/",
             secure: process.env.NODE_ENV === "production",
         })
 
@@ -51,6 +53,8 @@ router.get("/logout", (req, res) => {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
             sameSite: "None",
+            domain: "notes-app-frontend-pi.vercel.app",
+            path: "/"
         })
         res.sendStatus(200)
     } catch (err) {
