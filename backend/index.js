@@ -16,7 +16,7 @@ connectToDB()
 
 app.use(
     cors({
-        origin: true,
+        origin: "https://notes-app-frontend-pi.vercel.app",
         methods: ["GET", "POST", "PUT", "DELETE"],
         credentials: true,
     })
