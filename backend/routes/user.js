@@ -34,8 +34,8 @@ router.post("/login", async (req, res) => {
         res.cookie("Authorization", token, {
             expires: new Date(exp),
             httpOnly: true,
-            sameSite: true,
-            // secure: process.env.NODE_ENV === "production",
+            sameSite: "None",
+            secure: process.env.NODE_ENV === "production",
         })
 
         res.sendStatus(200)
